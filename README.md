@@ -1,0 +1,1 @@
+# RuleSet for Technodom
