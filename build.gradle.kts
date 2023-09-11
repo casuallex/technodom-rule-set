@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.casuallex"
+group = "com.github.casuallex.technodomruleset"
 version = "1.0-SNAPSHOT"
 
 dependencies {
