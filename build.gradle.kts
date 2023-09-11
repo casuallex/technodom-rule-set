@@ -18,6 +18,7 @@ kotlin {
     jvmToolchain(17)
 }
 
+
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
     systemProperty("junit.jupiter.testinstance.lifecycle.default", "per_class")
