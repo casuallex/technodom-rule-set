@@ -14,6 +14,7 @@ internal class MoshiPackageTest(private val env: KotlinCoreEnvironment) {
     fun `reports inner classes`() {
         val code = """
             package kz.technodom.auth.domain.models
+            import com.squareup.moshi.JsonClass
 
             @JsonClass(generateAdapter = true)
             class AuthResponse()
@@ -26,6 +27,7 @@ internal class MoshiPackageTest(private val env: KotlinCoreEnvironment) {
     fun `not report package`() {
         val code = """
             package kz.technodom.auth.data.models
+            import com.squareup.moshi.JsonClass
 
             @JsonClass(generateAdapter = true)
             class AuthResponse()
