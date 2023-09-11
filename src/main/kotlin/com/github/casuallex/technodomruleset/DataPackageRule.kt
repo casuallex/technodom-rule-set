@@ -14,8 +14,8 @@ import org.jetbrains.kotlin.psi.KtPackageDirective
 class DataPackageRule(config: Config) : Rule(config) {
     override val issue = Issue(
         javaClass.simpleName,
-        Severity.CodeSmell,
-        "DataPackageRule",
+        Severity.Defect,
+        "this kind of classes should be in data package",
         Debt.FIVE_MINS,
     )
 
