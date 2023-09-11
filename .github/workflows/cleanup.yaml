@@ -33,5 +33,5 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           branch: main
-          github_token: {{secrets.TOKEN1234}}
+          github_token: {{ secrets.TOKEN1234 }}
 
