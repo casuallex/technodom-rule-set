@@ -21,21 +21,21 @@ class DataPackageRule(config: Config) : Rule(config) {
 
     var currentPackageName: String? = null
 
-    override fun visitPackageDirective(directive: KtPackageDirective) {
-        currentPackageName = directive.qualifiedName
-    }
+//    override fun visitPackageDirective(directive: KtPackageDirective) {
+//        currentPackageName = directive.qualifiedName
+//    }
 
     override fun visitClass(klass: KtClass) {
         super.visitClass(klass)
-        if (klass.hasAnnotation("JsonClass")) {
-            report(
-                CodeSmell(
-                    issue,
-                    entity = Entity.from(klass),
-                    "@JsonClass анотация должна находиться в пакете kz.technodom.{MODULE_NAME}.data"
-                )
+//        if (klass.hasAnnotation("JsonClass")) {
+        report(
+            CodeSmell(
+                issue,
+                entity = Entity.from(klass),
+                "@JsonClass анотация должна находиться в пакете kz.technodom.{MODULE_NAME}.data"
             )
-        }
+        )
+//        }
 //        klass.annotationEntries.forEach {
 //            if (it.text.startsWith("@JsonClass")) {
 //                val packageTokens = currentPackageName?.split(".").orEmpty()
