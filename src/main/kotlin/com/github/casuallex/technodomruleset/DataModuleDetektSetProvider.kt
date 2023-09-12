@@ -12,6 +12,7 @@ class DataModuleDetektSetProvider : RuleSetProvider {
             ruleSetId,
             listOf(
                 DataPackageRule(config),
+                ComposableParametersOrdering(config),
             ),
         )
     }

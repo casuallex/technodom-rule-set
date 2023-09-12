@@ -1,3 +1,5 @@
 technodom:
   DataPackageRule:
     active: true
+  ComposableParametersOrdering:
+    active: true
