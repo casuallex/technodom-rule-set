@@ -36,7 +36,7 @@ class DataPackageRule(config: Config) : Rule(config) {
                     CodeSmell(
                         issue,
                         entity = Entity.from(klass),
-                        "@JsonClass annotation should be in package: kz.technodom." + klass.getKtModule().moduleDescription + ".data"
+                        "@JsonClass annotation should be in package: kz.technodom.{MODULENAME}.data.models"
                     )
                 )
             }
