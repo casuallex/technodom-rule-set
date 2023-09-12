@@ -30,7 +30,7 @@ class DataPackageRule(config: Config) : Rule(config) {
         super.visitClass(klass)
         if (klass.hasAnnotation("JsonClass")) {
             val packageTokens = currentPackageName?.split(".").orEmpty()
-            if (packageTokens.size >= 5 ||
+            if (packageTokens.size < 5 ||
                 packageTokens[0] != "kz" ||
                 packageTokens[1] != "technodom" ||
                 packageTokens[3] != "data" ||
@@ -39,9 +39,7 @@ class DataPackageRule(config: Config) : Rule(config) {
                     CodeSmell(
                         issue,
                         entity = Entity.from(klass),
-                        "@JsonClass annotation should be in package: kz.technodom${
-                            klass.project.name
-                        }.data.models"
+                        "@JsonClass annotation should be in package: kz.technodom.data.models"
                     )
                 )
             }
