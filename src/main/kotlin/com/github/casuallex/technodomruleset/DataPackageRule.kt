@@ -29,14 +29,19 @@ class DataPackageRule(config: Config) : Rule(config) {
     override fun visitClass(klass: KtClass) {
         super.visitClass(klass)
         if (klass.hasAnnotation("JsonClass")) {
-
             val packageTokens = currentPackageName?.split(".").orEmpty()
-            if (packageTokens.size != 5 || packageTokens[0] != "kz" || packageTokens[1] != "technodom" || packageTokens[3] != "data" || packageTokens[4] != "models") {
+            if (packageTokens.size >= 5 ||
+                packageTokens[0] != "kz" ||
+                packageTokens[1] != "technodom" ||
+                packageTokens[3] != "data" ||
+                packageTokens[4] != "models") {
                 report(
                     CodeSmell(
                         issue,
                         entity = Entity.from(klass),
-                        "@JsonClass annotation should be in package: kz.technodom.{MODULENAME}.data.models"
+                        "@JsonClass annotation should be in package: kz.technodom${
+                            klass.project.name
+                        }.data.models"
                     )
                 )
             }
